@@ -7,7 +7,6 @@ import java.security.spec.AlgorithmParameterSpec;
  * in the algorithm is the 2 char array commonly known as the "salt".
  *
  * @author John Glynn
- * @version 1.2
  */
 public class CryptAlgorithmParameterSpec implements AlgorithmParameterSpec {
 

@@ -7,7 +7,6 @@ import javax.crypto.SecretKey;
  * Container for raw bytes of clear-text password
  *
  * @author John Glynn
- * @version 1.2
  */
 public class CryptKeySpec implements KeySpec, SecretKey {
 

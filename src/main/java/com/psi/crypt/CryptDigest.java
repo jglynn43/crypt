@@ -7,7 +7,6 @@ import java.security.AlgorithmParameters;
  * A hashing digest which uses the crypt(3C) algorithm.
  *
  * @author John Glynn
- * @version 1.2
  */
 public final class CryptDigest extends MessageDigest {
 

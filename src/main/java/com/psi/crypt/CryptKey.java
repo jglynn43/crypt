@@ -6,7 +6,6 @@ import javax.crypto.SecretKey;
  * Opaque representation of the key used in the crypt(3C) algorithm.
  *
  * @author John Glynn
- * @version 1.2
  */
 public class CryptKey implements SecretKey {
 

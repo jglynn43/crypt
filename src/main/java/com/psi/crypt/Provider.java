@@ -4,7 +4,6 @@ package com.psi.crypt;
  * Implementation of Provider class to extend the java security Provider
  *
  * @author John Glynn
- * @version 1.2
  */
 public final class Provider extends java.security.Provider {
 

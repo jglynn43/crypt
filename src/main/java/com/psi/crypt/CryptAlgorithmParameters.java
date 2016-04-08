@@ -9,7 +9,6 @@ import java.security.spec.InvalidParameterSpecException;
  * Implementation of AlgorithmParameters SPI for crypt(3C) algorithm.
  *
  * @author John Glynn
- * @version 1.2
  */
 public class CryptAlgorithmParameters extends AlgorithmParametersSpi {
 

@@ -4,14 +4,10 @@ package com.psi.crypt;
  * A class to convert six bit char strings into raw byte arrays.
  *
  * @author John Glynn
- * @version 1.2
  */
 public class Base64Decoder {
 
-    /**
-     * Base64Decoder is not meant to implemented directly.
-     */
-    protected Base64Decoder() {
+    private Base64Decoder() {
     }
 
     /**

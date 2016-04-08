@@ -4,14 +4,10 @@ package com.psi.crypt;
  * A class to convert raw byte strings into six bit char strings.
  *
  * @author John Glynn
- * @version 1.2
  */
 public class Base64Encoder {
 
-    /**
-     * Base64Encoder is not meant to implemented directly.
-     */
-    protected Base64Encoder() {
+    private Base64Encoder() {
     }
 
     /**

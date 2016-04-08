@@ -35,7 +35,6 @@ import java.security.AlgorithmParameters;
  * Implementation of crypt(3C) based on GNU UFC-crypt.
  *
  * @author John Glynn
- * @version 1.2
  */
 class CryptImplementation {
 
