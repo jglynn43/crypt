@@ -12,7 +12,7 @@ public class CryptUtility {
     /**
      * The 1024 bit Diffie-Hellman modulus values used by SKIP.
      */
-    public static final byte skip1024ModulusBytes[] = {
+    public static final byte[] SKIP_MODULUS_BYTES = {
         (byte) 0xF4, (byte) 0x88, (byte) 0xFD, (byte) 0x58,
         (byte) 0x4E, (byte) 0x49, (byte) 0xDB, (byte) 0xCD,
         (byte) 0x20, (byte) 0xB4, (byte) 0x9D, (byte) 0xE4,
@@ -50,26 +50,32 @@ public class CryptUtility {
     /**
      * The SKIP 1024 bit modulus.
      */
-    public static final BigInteger skip1024Modulus
-            = new BigInteger(1, skip1024ModulusBytes);
+    public static final BigInteger SKIP_MODULUS
+            = new BigInteger(1, SKIP_MODULUS_BYTES);
 
     /**
      * The base used with the SKIP 1024 bit modulus
      */
-    public static final BigInteger skip1024Base = BigInteger.valueOf(2);
+    public static final BigInteger SKIP_BASE = BigInteger.valueOf(2);
 
     /**
      * Commonly used bitmasks for bytes.
      */
-    static final byte[] bytemask = {
+    public static final byte[] bytemask = {
         (byte) 0x80, (byte) 0x40, (byte) 0x20, (byte) 0x10,
         (byte) 0x08, (byte) 0x04, (byte) 0x02, (byte) 0x01
     };
 
     /**
+     * The hexadecimal chars.
+     */
+    public static final char[] hexChars = {'0', '1', '2', '3', '4', '5', '6',
+        '7', '8', '9', 'A', 'B', 'C', 'D', 'E', 'F'};
+
+    /**
      * Commonly used bitmasks for integers.
      */
-    static final int[] intmask = {
+    public static final int[] intmask = {
         0x80000000, 0x40000000, 0x20000000, 0x10000000,
         0x08000000, 0x04000000, 0x02000000, 0x01000000,
         0x00800000, 0x00400000, 0x00200000, 0x00100000,
@@ -83,7 +89,7 @@ public class CryptUtility {
     /**
      * The one-byte integers with odd parity
      */
-    static final int[] signedOddParity
+    public static final int[] signedOddParity
             = {
                 2, 4, 8, 14, 16, 22, 26,
                 28, 32, 38, 42, 44, 50, 52,
@@ -99,7 +105,7 @@ public class CryptUtility {
     /**
      * The one-byte integers with even parity
      */
-    static final int[] signedEvenParity
+    public static final int[] signedEvenParity
             = {
                 0, 6, 10, 12, 18, 20, 24,
                 30, 34, 36, 40, 46, 48, 54,
@@ -113,33 +119,12 @@ public class CryptUtility {
             };
 
     /**
-     * CryptUtility is not meant to implemented directly.
-     */
-    private CryptUtility() {
-    }
-
-    /**
-     * Converts a byte to hex digit and writes to the supplied buffer.
-     *
-     * @param b Byte containing hex number.
-     * @param buf StringBuilder to contain the output.
-     */
-    static void byte2hex(byte b, StringBuilder buf) {
-        char[] hexChars = {'0', '1', '2', '3', '4', '5', '6', '7', '8',
-            '9', 'A', 'B', 'C', 'D', 'E', 'F'};
-        int high = ((b & 0xf0) >> 4);
-        int low = (b & 0x0f);
-        buf.append(hexChars[high]);
-        buf.append(hexChars[low]);
-    }
-
-    /**
      * Converts a byte array to hex string
      *
      * @param block Byte array to be output.
      * @return String representation of the byte array.
      */
-    static String toHexString(byte[] block) {
+    public static String toHexString(byte[] block) {
         StringBuilder buf = new StringBuilder();
 
         int len = block.length;
@@ -172,7 +157,7 @@ public class CryptUtility {
      * @param c Encoded character
      * @return Integer value of encoded character
      */
-    static int asciiToBinary(char c) {
+    public static int asciiToBinary(char c) {
         return (c >= 'a' ? (c - 59) : c >= 'A' ? (c - 53) : c - '.');
     }
 
@@ -183,7 +168,7 @@ public class CryptUtility {
      * @param i Integer value in range {0, ..., 63}
      * @return Encoded character
      */
-    static char binaryToAscii(int i) {
+    public static char binaryToAscii(int i) {
         return (char) (i >= 38
                 ? (i - 38 + 'a')
                 : i >= 12 ? (i - 12 + 'A') : i + '.');
@@ -271,5 +256,24 @@ public class CryptUtility {
         }
 
         return bytes;
+    }
+
+    /**
+     * CryptUtility is not meant to implemented directly.
+     */
+    private CryptUtility() {
+    }
+
+    /**
+     * Converts a byte to hex digit and writes to the supplied buffer.
+     *
+     * @param b Byte containing hex number.
+     * @param buf StringBuilder to contain the output.
+     */
+    private static void byte2hex(byte b, StringBuilder buf) {
+        int high = ((b & 0xf0) >> 4);
+        int low = (b & 0x0f);
+        buf.append(hexChars[high]);
+        buf.append(hexChars[low]);
     }
 }
